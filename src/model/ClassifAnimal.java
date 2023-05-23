@@ -12,25 +12,6 @@ public class ClassifAnimal {
     listaAnimal = new ArrayList<>();
   }
 
-  public void Escolha(int opc) {
-    menuLista();
-    opc = ind.nextInt();
-    switch (opc) {
-     /*  case 1:
-        adicinoarAnimal(null, null, null, opc);
-        break;*/
-      case 2:
-        listarAnimaisPorCategoria(null);
-      case 3:
-        VerificarLista();
-      case 4:
-        AnimaisNaLista();
-      default:
-        System.out.println("nanana");
-        
-    }
-  }
-
   // adiciona um novo objeto animal na lista
   public void adicinoarAnimal(String nome, String reino, String categoria, int quantPernas) {
     int idanimal = listaAnimal.size();
@@ -61,6 +42,8 @@ public class ClassifAnimal {
   }
 
   public void AnimaisNaLista() {
+    // total animais informa quantos obj animais foram adicionados;
+    System.out.println("---- Animais na Lista ---- TotalAnimais:" + listaAnimal.size());
     for (Animal animal : listaAnimal) {
       System.out.println(animal);
     }
@@ -69,26 +52,20 @@ public class ClassifAnimal {
 
   public void listarAnimaisPorCategoria(String categoria) {
 
-    System.out.println("Animais da categoria " + categoria + ":");
+    System.out.println("---------------------------------------");
+    System.out.print("Animais da categoria " + categoria + ":");
     boolean encontrouCategoria = false;
     for (Animal animal : listaAnimal) {
       if (animal.getCategoria().equalsIgnoreCase(categoria)) {
         encontrouCategoria = true;
-        System.out.println(animal);
+        System.out.print(animal);
       }
     }
 
     if (!encontrouCategoria) {
       System.out.println("Nenhum animal encontrado na categoria " + categoria + ".");
     }
-  }
-
-  public void menuLista() {
-  //  System.out.println("1-Adicionar");
-    System.out.println("2-Animais Por Categoria");
-    System.out.println("3-Verificar Lista Por Indice");
-    System.out.println("4-Listar todos os Animais");
-
+    System.out.println();
   }
 
   public List<Animal> getListaAnimal() {
